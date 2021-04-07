@@ -104,6 +104,7 @@ echo "Populating ${TARGET_PATH}"
 mkdir -p "${TARGET_PATH}" || exit 1
 echo "Initial_Source_Path: ${INITIAL_SOURCE_PATH}"
 echo "Target_Path: ${TARGET_PATH}"
+ls /github/workspace/
 rsync -a --quiet --delete --exclude ".git" "${SOURCE_PATH}/" "${TARGET_PATH}" || exit 1
 
 # Check changes
