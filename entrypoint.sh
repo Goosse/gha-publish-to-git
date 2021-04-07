@@ -77,8 +77,6 @@ if [ "$(git ls-remote --heads "${REMOTE}" "${BRANCH}"  | wc -l)" == 0 ] ; then
     TARGET_PATH="${WORK_DIR}/${TARGET_FOLDER}"
     echo "Populating ${TARGET_PATH}"
     mkdir -p "${TARGET_PATH}" || exit 1
-    echo "Initial_Source_Path: ${INITIAL_SOURCE_PATH}"
-    echo "Target_Path: ${TARGET_PATH}"
     rsync -a --quiet --delete --exclude ".git" "${INITIAL_SOURCE_PATH}/" "${TARGET_PATH}" || exit 1
 
     echo "Creating initial commit"
@@ -104,6 +102,8 @@ fi
 TARGET_PATH="${WORK_DIR}/${TARGET_FOLDER}"
 echo "Populating ${TARGET_PATH}"
 mkdir -p "${TARGET_PATH}" || exit 1
+echo "Initial_Source_Path: ${INITIAL_SOURCE_PATH}"
+echo "Target_Path: ${TARGET_PATH}"
 rsync -a --quiet --delete --exclude ".git" "${SOURCE_PATH}/" "${TARGET_PATH}" || exit 1
 
 # Check changes
